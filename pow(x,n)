@@ -1,0 +1,37 @@
+class Solution {
+    public double myPow(double x, int n) {
+      if(n==0)return 1;
+        if(n==1)return x;
+        if(n==Integer.MIN_VALUE){
+            n=n+2;  }//to avoid overflow condition
+        if(n<0){
+            n=-n;
+            x=1/x;}
+        return (n%2==0) ?myPow(x*x,n/2):x*myPow(x*x,n/2);}}
+/*if given x^32 n=32    if given x^33
+ x^16 *x^16             x^16*x^16*x
+   X^4*x^4 
+   x^2*x^2
+   x^1
+  ex:x^32
+  x-> x*x=x^2   n=32/2
+      x^2*x^2=x^4   n=32/4
+      x^4*x^4=x^8  n=32/8
+      x^8*x^8=x^16 n=32/16
+  x->   x^16*x^16=x^32 n=32/32 here n=1 so return x
+   
+*//* double ans=1;
+    public double myPow(double x, int n) {
+       return multiply(x,n); 
+    }
+    double multiply(double x,int n){
+       if(n>=0){
+        if(n==0){
+            return ans;  }
+        while(n!=0){
+        ans=ans*x;
+        n--;} }
+       if(n<0){
+           return multiply(1/x,-n);}
+        return ans;
+ */
