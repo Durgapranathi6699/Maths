@@ -1,0 +1,24 @@
+class Solution {
+     public int minimumNumbers(int num, int k) {
+       if(num==0)
+           return 0;
+        if(k==0){//ex:10,20,30
+            if(num%10==0){
+                return 1;
+            }
+            return -1;
+        }
+        for(int i=1;i<=num/k;i++){
+            if(num%10==((i*k)%10))//if given number last digit matches with multiple of k then return that i value(which means by adding that many numbers we are able to get the min no. to add to give num)
+                return i;
+        }
+        return -1;
+}
+}
+/*ex:58 k=9
+58/9=6  
+8 != 1*9=9
+8== 2*9=18%10=8    (ans=2) by adding min of 2 numbers we get 
+  question is by adding least possible no.(which has last digit as k) u get that num
+
+*/
