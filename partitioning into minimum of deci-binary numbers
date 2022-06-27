@@ -1,0 +1,31 @@
+class Solution {
+    public int minPartitions(String n) {
+        int max=0;
+        for(int i=0;i<n.length();i++){
+            max=Math.max(max,n.charAt(i)-'0');
+        }
+        return max;
+    }
+}
+/*"82734"
+1. 11111
+2. 11111
+3. 1 111
+4. 1 1 1
+5. 1 1 
+6. 1 1
+7. 1 1
+8. 1
+   no.of nums are decided by largest digit
+*/
+/*"82734"
+1. 11111
+2. 11111
+3. 10111
+4. 10101
+5. 10100
+6. 10100
+7. 10100
+8. 10000
+   no.of nums are decided by largest digit
+*/
