@@ -1,0 +1,32 @@
+class Solution {
+     public int[] countBits(int n) {
+         int ans[]=new int[n+1];
+        ans[0]=0;
+        // if odd number 1+ans[that no./2]; else ans[that no./2]
+        for(int i=1;i<=n;i++){
+            ans[i]=ans[i/2]+i%2;
+        }
+        return ans;
+    //     for(int i=0;i<=n;i++){
+    //          ans[i]=helper(i);
+    //           }
+    //       return ans;
+    //    }
+    // int helper(int i){
+    //     int count=0;
+    //     String s=Integer.toBinaryString(i);
+    //          for(int j=0;j<s.length();j++){
+    //             if(s.charAt(j)=='1'){
+    //                 count++;
+    //             }
+    //         }
+    //     return count;
+    }
+}
+/*0 --> 0  
+1 --> 1 (value of 0 +1) no.of ones=1
+2 --> 10 (value of 2/2 =value of 1 =1)no.of ones=1
+3 --> 11(value of 3/2 +1 =value of 1 +1=1+1=2) no.of ones =2
+4 --> 100(value of4/2 =value of 2 =1) no.of ones=1
+5 --> 101(value of 5/2+1= value of 2 +1 =1+1=2)no.of ones=2*/
+
