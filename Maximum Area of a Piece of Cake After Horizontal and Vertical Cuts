@@ -1,0 +1,24 @@
+class Solution {
+    public int maxArea(int h, int w, int[] horizontalCuts, int[] verticalCuts) {
+        Arrays.sort(horizontalCuts);
+        Arrays.sort(verticalCuts);
+        int max1=Math.max(horizontalCuts[0],h-horizontalCuts[horizontalCuts.length-1]);
+          for(int i=1;i<horizontalCuts.length;i++){
+           max1=Math.max(horizontalCuts[i]-horizontalCuts[i-1],max1);
+        }
+          int max2=Math.max(verticalCuts[0],w-verticalCuts[verticalCuts.length-1]);
+        for(int i=1;i<verticalCuts.length;i++){
+           max2=Math.max(verticalCuts[i]-verticalCuts[i-1],max2);
+        }
+        long ans=1L*max1*max2;
+        ans=ans%(long)(Math.pow(10,9)+7);
+        return (int)ans;
+    }
+}
+/*get max width and height ans=maxWidth*maxHeight
+sort both arrays
+intially max1 contains max of 1 st and h-largset in horizontalCuts array
+and max2 contains max of 1 st and w-largest of verticalCuts array
+if any of diiference is greater than max 1 max2 change max 1 max2
+
+*/
