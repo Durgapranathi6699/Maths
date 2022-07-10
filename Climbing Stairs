@@ -1,0 +1,17 @@
+class Solution {
+    public int climbStairs(int n) {
+        //this is like fibanoci except the base cases N1=1,N2=2 N1=N2 N2=TOTAL
+     if(n==1)return 1;//one step
+       if(n==2)return 2;//one step at a time or 2 steps at a time
+        int N1=1;
+        int N2=2;
+        int total=0;
+        for(int i=3;i<=n;i++){
+            total=N1+N2;
+            N1=N2;
+            N2=total;
+        }
+        return total;
+        //return climbStairs(n-1)+climbStairs(n-2);//recursion
+    }
+}
