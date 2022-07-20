@@ -1,0 +1,16 @@
+class Solution{
+    static List<Integer> pattern(int N){
+        List<Integer>  ans=new ArrayList<>();
+         helper(ans,N);
+         return ans;
+    }
+   static void helper( List<Integer>  ans,int N){
+        if(N<=0){
+            ans.add(N);//when it reaches -4 add that and return which removes elements from stack
+            return;
+        }
+        ans.add(N);
+        helper(ans,N-5);//after this execution
+        ans.add(N);//poped elemnts from stack are prinnted
+    }
+}
