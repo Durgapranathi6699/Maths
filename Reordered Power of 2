@@ -1,0 +1,29 @@
+class Solution {
+    public boolean reorderedPowerOf2(int n) {
+       int a[]=findFreq(n);//freq stored for each digit in given number n
+        for(int i=0;i<31;i++){
+            int b[]=findFreq((int)Math.pow(2,i));//freq for powers of 2 one at a time
+            if(compare(a,b)){//if freq of any digit doesnt match return false
+                return true;
+            }
+        }
+        return false;
+    }
+    int[] findFreq(int num){//finding freq of each digit
+        int a[]=new int[10];
+        while(num>0){
+           a[num%10]++;
+            num=num/10;
+        }
+        return a;
+    }
+    boolean compare(int a[],int b[]){//comparing freq
+        for(int i=0;i<10;i++){
+            if(a[i]!=b[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+//frequency of each num in given num should match with any power of 2 frequency
