@@ -1,0 +1,32 @@
+//traverse char by char in map
+//get itts value in map and add to ans
+//execption cases are like 4,9,...   where i+1 char is greater than i char  "M   CM    XCIV"  here CM M is greater than C 
+//in this case write ans as m-c
+
+class Solution {
+    public int romanToInt(String s) {
+      Map<Character,Integer> map=new HashMap<>();
+         map.put('I',1);
+         map.put('V',5);
+         map.put('X',10);
+         map.put('L',50);
+         map.put('C',100);
+         map.put('D',500);
+         map.put('M',1000);
+        int ans=0;
+        for(int i=0;i<s.length();i++){
+           if(i<s.length()-1 && map.get(s.charAt(i+1))>map.get(s.charAt(i))){
+                ans+=map.get(s.charAt(i+1))-map.get(s.charAt(i));
+             i++;//so that two charaters are considered at this step(since i+1 is already used)
+            }
+            else{
+                  ans+=map.get(s.charAt(i)); 
+            }
+         
+        }
+        return ans;
+    }
+}
+        
+        
+           
