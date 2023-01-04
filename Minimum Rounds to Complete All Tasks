@@ -1,0 +1,32 @@
+class Solution {
+    public int minimumRounds(int[] tasks) {
+        Map<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<tasks.length;i++){
+            map.put(tasks[i],map.getOrDefault(tasks[i],0)+1);//value,frequency map
+        }
+        int count=0;
+        for(int val:map.values()){
+              if(val<=1){
+                 return -1;
+             }
+             else{
+                 //by observation 
+                 //if a frequency is divisible by 3 then count increases by (val/3)
+                 if(val%3==0){     
+                     count=count+val/3;
+                 }else{
+                     count=count+val/3+1;
+                 }
+             }
+             
+            
+        }
+        return count;
+    }
+}
+//ex: 5 5 5 5 
+//5  freq 4(can not divisble by 2) 
+//it can be grouped into tasks(3+1) (2+2)
+//(3+1)leaves with 1 which can not be handled
+//so possible answer is tasks(2,2) at a time--> (5/3+1)=2
+
