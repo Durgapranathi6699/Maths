@@ -1,0 +1,33 @@
+class Solution {
+    public long mod = 1000000007; 
+    public int countGoodNumbers(long n) {
+        
+        
+        long odd = n/2; //It gives the number of odd indices starting from 1 to n. 
+        long even = (n+1)/2; //It gives number of even indices. It is basically n/2 + n%2;
+        return (int)(pow(5, even)*pow(4, odd)%mod); //As there are 4 prime numbers and 5 even numbers
+                                                    // from 0 to 9.
+        
+    }
+
+    public long pow(long x, long n) {
+        
+        if(n==0) return 1;
+        
+        long p = pow(x,n/2);
+        
+        if(n%2==0){
+            return (p*p)%mod;
+        }
+        else{
+            return (x*p*p)%mod;
+        }
+    }
+}
+//even -  even
+//odd -prime
+// 0,1,2,3,4,5,6,7,8,9    0,2,4,6,8
+// 0  2 4 6 8
+// //2 3 5 7 
+// 5*4 
+//5*20*4
